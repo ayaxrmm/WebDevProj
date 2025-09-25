@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="booking__part">
+    <div class="booking__left" *ngIf="!showPaymentForm">
+      <h2>Choose the seat</h2>
+      <div class="seating-area">
+        <div class="seating__screen">
+          <img [src]="'scrn.png'" alt="" />
+          <p>Screen</p>
+        </div>
+        <div class="seats">
+          <div
+            *ngFor="let row of seatMap; let rowIndex = index"
+            class="seat-row"
+          >
+            <button
+              class="select__btn"
+              *ngFor="let seat of row; let seatIndex = index"
+              [ngClass]="{ selected: isSelected(rowIndex, seatIndex) }"
+              (click)="toggleSeat(rowIndex, seatIndex)"
+            >
+              {{ seatIndex + 1 }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showPaymentForm" class="booking__pay">
+        <h2>Please fill out the form to continue payment.</h2>
+        <form class="payment__form" #paymentForm="ngForm" (ngSubmit)="onPaymentSubmit(paymentForm)"  action="">
+            <label for="">
+                Name/Surname on the card:
+                <input type="text" placeholder="NAME SURNAME" name="cardName" ngModel>
+            </label>
+            <label for="">
+                Number of the card:
+                <input type="text" placeholder="4444 4444 4444 4444" name="cardNumber" ngModel>
+            </label>
+            <label for="">
+                Date:
+                <input type="text" placeholder="01/25" name="expiryDate" ngModel>
+            </label>
+            <label for="">
+                CVV:
+                <input type="text" placeholder="123" name="cvv" ngModel>
+            </label>
+            <button type="submit">Pay</button>
+        </form>
+
+    </div>
+    <div class="booking__right">
+      <h2>Your booking</h2>
+      <hr />
+      <div class="booking__info">
+        <div class="info__img">
+          <img [src]="movie?.image_url" alt="" />
+        </div>
+        <div class="movie__info" *ngIf="screening || cinema">
+          <h2>{{ movie?.title }}</h2>
+          <p>{{ movie?.duration }}</p>
+          <p>
+            At <strong>{{ cinema?.name }}</strong>
+          </p>
+          <p>({{ cinema?.location }})</p>
+          <p>
+            On <strong>{{ screening?.date }} - {{ screening?.time }}</strong>
+          </p>
+        </div>
+      </div>
+      <div class="select-seat" *ngIf="selectedSeats.length > 0">
+        <h2>Your seats:</h2>
+        
+        <div class="selectedseat__info" *ngFor="let seat of selectedSeats; let i = index">
+            <span>{{ seat.row + 1 }} row, {{ seat.seat + 1 }} seat</span>
+            <span>{{screening?.price | currency:'  '}}</span>
+            <!-- <span *ngIf="i < selectedSeats.length - 1"> <br /></span> -->
+        </div>
+              
+        <div class="total__price" *ngIf="screening">
+            <p><strong>{{selectedSeats.length}} seats have chosen</strong></p>
+            <strong>Total: {{ selectedSeats.length * screening.price | currency:' '}}</strong>
+        </div>
+        
+      </div>
+      <div class="confirm__btn">
+        <button *ngIf="!showPaymentForm && selectedSeats.length > 0" (click)="bookNow()">Book now</button>
+      </div>
+    </div>
+  </div>
+</div>

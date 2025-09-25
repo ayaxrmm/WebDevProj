@@ -1,0 +1,158 @@
+.container {
+    max-width: 1020px;
+    margin: 50px auto;
+}
+.booking__part{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.seating-area {
+    border: 1px solid #d9dad7;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 50px 50px;
+    
+}
+.seats{
+    /* display: flex;
+    justify-content: space-between; */
+    margin-top: 100px;
+    
+}
+.seat-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    
+}
+.select__btn {
+    padding: 5px 5px;
+   
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    margin: 4px 0;
+    background: none;
+    border: #a2a8d3 solid;
+    border-radius: 5px;
+    
+    
+}
+.selected{
+    background-color:#a2a8d3 ;color: white;
+}
+.select__btn:hover{
+    background-color: #a2a8d3;
+    color: white;
+}
+.select__btn:active{
+    background-color: #a2a8d3;
+    color: white;
+}
+
+.seating__block{
+    
+}
+.seating__screen {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.seating__screen p{
+    position: absolute;
+   
+}
+.seating__screen img{
+    width: 500px;
+}
+
+
+.booking__right {
+    margin: 0 50px;
+    padding: 0;
+}
+.booking__info {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    
+}
+.info__img img{
+    width: 100px;
+}
+.movie__info{
+    padding-left: 10px;
+}
+.movie__info h2{
+    font-size: 16px;
+    margin: 0;
+    
+}
+.movie__info p{
+    font-size: 14px;
+    margin: 10px 0;
+}
+.confirm__btn button{
+    background-color: #a2a8d3;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+.confirm__btn button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.selectedseat__info{
+    display: flex;
+    justify-content: space-between;
+}
+.selectedseat__info span{
+    padding: 7px 0;
+}
+.total__price{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 26px;
+}
+.total__price p{
+    font-size: 16px;
+}
+.payment__form{
+    display: flex;
+    flex-direction: column;
+
+}
+.payment__form label{
+    padding: 20px 0;
+}
+.payment__form input{
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: #d9dad7 1px solid;
+    margin-left: 5px;
+}
+.payment__form button{
+    padding: 10px 10px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: midnightblue;
+    border: none;
+    transition: transform 0.3s ease;
+    color: white;
+    font-weight: bold;
+}
+.payment__form button:hover{
+    border: 2px midnightblue solid;
+    background: none;
+    color: midnightblue;
+    cursor: pointer;
+    transform: scale(1.05);
+}

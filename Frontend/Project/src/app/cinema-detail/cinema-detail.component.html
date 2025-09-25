@@ -1,0 +1,40 @@
+
+<div class="cinema__header" [style.backgroundImage]="'url(' + cinema?.image_url + ')'" >
+    <div class="cinema__info">
+        <h2>{{cinema?.name}}</h2>
+    <div class="cinema__location">
+        <p><img [src]="'location.png'" alt="" class="location__icon">{{cinema?.location}}</p>
+    </div>
+    </div>
+    
+</div>
+
+<div class="container">
+    <section id="booking">
+        <div class="screenings-list" >
+            <div class="screening__item" *ngFor="let screening of upcomingScreenings" [routerLink]="['/movies', getMovieById(screening.movieId)?.id]">
+                <div class="screening__movie" >
+                    <img [src]="getMovieById(screening.movieId)?.image_url" alt="">
+                    <div class="screening__info">
+                        <h2>{{getMovieById(screening.movieId)?.title}}</h2>
+                        <p>Duration: {{getMovieById(screening.movieId)?.duration}}</p>
+                    </div>
+                    
+                </div>
+                
+                <div class="screening__datetime">
+                    <div class="screening__time">
+                        <h2>{{screening.time}}</h2>
+                    </div>
+                    <div class="screening__date">
+                        <h2>{{screening.date}}</h2>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+            
+        </div>
+    </section>
+</div>
